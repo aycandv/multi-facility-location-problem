@@ -1,5 +1,5 @@
 # comp-305-project
-Term Project of COMP 305 Course at Koç University
+Term Project of COMP 305 Course at Koç University | Spring 2021
 
 ## Team
 
