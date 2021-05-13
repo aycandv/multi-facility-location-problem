@@ -3,9 +3,12 @@
 
 
 #define size_int sizeof(int)
-#define size_intptr sizeof(int *)
+#define size_intptr sizeof(int *) 
+
+#define INF2 (INT32_MAX)   //99999995 
 
 void init_vertexr(int ***ptr,int size);
+
 int readFile(int* graph_size,int ** weight, int *** vertex, const char * filename){
     FILE * fp;
     fp = fopen(filename,"r");
@@ -77,7 +80,7 @@ void init_vertexr(int ***ptr,int size){
         {
             if((*ptr)[i][j] == 0){
                 if(i != j){
-                    (*ptr)[i][j] = 99999;
+                    (*ptr)[i][j] = INF2;
                 }
             }
         }
@@ -89,7 +92,7 @@ void print2d_array(size_t size, int **ptr){
       for (size_t i = 0; i < size; i++){
         
         for (size_t j = 0; j < size; j++){
-            if(ptr[i][j] == 99999){
+            if(ptr[i][j] == INF2){
                 printf("INF ");
             } else {
                 printf ("%d  ", ptr[i][j]);

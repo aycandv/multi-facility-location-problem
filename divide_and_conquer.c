@@ -7,8 +7,7 @@
 /* Define Infinite as a large enough
   value. This value will be used
   for vertices not connected to each other */
-#define INF 99999
-
+#define INF (INT32_MAX) //99999995 //INT32_MAX-1
 
 
 int firstDivision = 0;
@@ -28,12 +27,12 @@ void floydWarshall2 (int ** graph);
 // problem using Floyd Warshall algorithm
 void floydWarshall (int ** graph)
 {
-    printf("Task0 \n");
+   
 //	int V = size;
     int dist[V][V], i, j, k;
     int marked[V][V];
 
-
+    printf("%d \n",INF);
 
     // (dist) = malloc(size_intptr*size);
 
@@ -58,7 +57,7 @@ void floydWarshall (int ** graph)
            for (j = 0; j < V; j++)
         	   marked[i][j] = 0;
 
-    printf("Task1 \n");
+    
 
     for (k = 0; k < V; k++)
     {
@@ -94,8 +93,8 @@ void floydWarshall (int ** graph)
      i = 0;
      j= 0;
 
-     printSolution(dist); //marked);
-     printf("Task2 \n");
+     //printSolution(dist); //marked);
+     
 
      for (i = 0; i < V; i++)
     {
@@ -107,7 +106,7 @@ void floydWarshall (int ** graph)
 					continue;
 				}
             value[i] += dist[i][j]* weight[j];
-            printf("%d \n",value[i]);
+            //printf("%d ",value[i]);
         }
     }
 
@@ -119,7 +118,7 @@ void floydWarshall (int ** graph)
         }
     }
 
-    printf("Selected root is %d\n", root_index);
+    printf("Root value is %d\n",root_index);
     floydWarshall2 (graph);
 }
 
@@ -192,10 +191,10 @@ void floydWarshall2 (int **graph)
 					continue;
 				}
 
-                if ((dist[i][k] == -INF) ||  dist[k][j] == -INF)
-                {
-                	continue;
-                }
+                // if ((dist[i][k] == -INF) ||  dist[k][j] == -INF)
+                // {
+                // 	continue;
+                // }
 
                 // If vertex k is on the shortest path from
                 // i to j, then update the value of dist[i][j]
@@ -235,6 +234,12 @@ void floydWarshall2 (int **graph)
 				{
 					continue;
 				}
+
+                if (value[i] == INF )
+				{
+					continue;
+				}
+
             if(marked[i][j] == 1) continue;
             value[i] += dist[i][j]* weight[j];
         }
@@ -344,10 +349,10 @@ int main()
 	readFile(&size, &weight, &vertex, filename);
 
 //	print_array(size, weight);
-	print2d_array(size, vertex);
+	//print2d_array(size, vertex);
     // Print the solution
 
-    printf("Floyd0 \n");
+    
     floydWarshall(vertex);
   // floydWarshall(graph);
 
