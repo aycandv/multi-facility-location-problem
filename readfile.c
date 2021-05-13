@@ -5,6 +5,7 @@
 #define size_int sizeof(int)
 #define size_intptr sizeof(int *)
 
+void init_vertexr(int ***ptr,int size);
 int readFile(int* graph_size,int ** weight, int *** vertex, const char * filename){
     FILE * fp;
     fp = fopen(filename,"r");
@@ -56,7 +57,7 @@ int readFile(int* graph_size,int ** weight, int *** vertex, const char * filenam
     }
 
     fclose(fp);
-    
+    init_vertexr(vertex,size);
     return 1;
 }
 
@@ -69,11 +70,31 @@ void print_array(size_t size, int *ptr){
     }    
 }
 
-void print2d_array(size_t size, int **ptr){
-      for (int i = 0; i < size; i++){
+void init_vertexr(int ***ptr,int size){
+    for (size_t i = 0; i < size; i++)
+    {
+        for (size_t j = 0; j < size; j++)
+        {
+            if((*ptr)[i][j] == 0){
+                if(i != j){
+                    (*ptr)[i][j] = 99999;
+                }
+            }
+        }
         
-        for (int j = 0; j < size; j++){
-            printf ("%d  ", ptr[i][j]);
+    }
+    
+}
+void print2d_array(size_t size, int **ptr){
+      for (size_t i = 0; i < size; i++){
+        
+        for (size_t j = 0; j < size; j++){
+            if(ptr[i][j] == 99999){
+                printf("INF ");
+            } else {
+                printf ("%d  ", ptr[i][j]);
+            }
+            
         }
         printf("\n");
         }
