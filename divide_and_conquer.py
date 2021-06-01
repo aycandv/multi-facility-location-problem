@@ -126,5 +126,5 @@ def floydwarshall(graph, weight):
 
 if __name__ == '__main__':
     graph, weight = readfile.readfile("tests/test2_new.txt")
-    print(len(graph))
+    
     floydwarshall(graph, weight)

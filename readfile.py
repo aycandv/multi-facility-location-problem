@@ -31,6 +31,6 @@ def init_vertex(vertices):
          
          if vertices[x][y] == 0 and x != y:
             vertices[x][y] = float('inf')
-   print(vertices)         
+   
    return vertices
             
