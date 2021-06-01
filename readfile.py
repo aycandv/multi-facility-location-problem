@@ -19,7 +19,7 @@ def readfile(filename):
          source, target, weight = map(int, edges[i].split(" "))
          vertex_array[source][target] = weight
          vertex_array[target][source] = weight
-
+      
       return (init_vertex(vertex_array) , weight_array)
 
 

@@ -24,9 +24,9 @@ def floydwarshall2(graph, root, root_index, weight):
         for y in range(len(graph)):
             marked[x][y] = 0
 
-    for x in range(len(graph)):
-        for y in range(len(graph)):
-            for z in range(len(graph)):
+    for z in range(len(graph)):
+        for x in range(len(graph)):
+            for y in range(len(graph)):
 
                 if dist[x][z] == float('inf') or dist[z][y] == float('inf'):
                     continue
@@ -94,9 +94,9 @@ def floydwarshall(graph, weight):
             dist[x][y] = graph[x][y]
             marked[x][y] = 0
 
-    for x in range(len(graph)):
-        for y in range(len(graph)):
-            for z in range(len(graph)):
+    for z in range(len(graph)):
+        for x in range(len(graph)):
+            for y in range(len(graph)):
 
                 if dist[x][z] == float('inf') or dist[z][y] == float('inf'):
                     continue
