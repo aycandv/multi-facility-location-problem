@@ -68,7 +68,7 @@ int readFile(int* graph_size,int ** weight, int *** vertex, const char * filenam
 void print_array(size_t size, int *ptr){
     for (size_t i = 0; i < size; i++)
     {
-        printf("ID : %d weight : %d",i,ptr[i]);
+        printf("ID : %zu weight : %d",i,ptr[i]);
         printf("\n");
     }    
 }

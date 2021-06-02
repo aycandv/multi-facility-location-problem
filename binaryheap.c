@@ -5,15 +5,19 @@
 #define DEFAULT 1
 #define type int
 
+/** @description: Min binary heap
+* 
+* */
 
 typedef struct binary_heap{
+   
     size_t size;
     size_t capacity;
     int * ptr;
 }binary_heap;
 
 
-void init(binary_heap * heap){
+void init_binary(binary_heap * heap){
    heap->ptr = malloc(sizeof(type)*DEFAULT);
     heap->capacity=DEFAULT;
     heap->size = 0;
@@ -151,7 +155,7 @@ int main(int argc, char const *argv[])
         }
         printf("\n");
         print_heap(&heap);
-    printf("Calling pop ! \n");
+       printf("Calling pop ! \n");
 
     for(int i=0;i<9;i++){
             printf("   %d ",pop(&heap));}

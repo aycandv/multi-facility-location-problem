@@ -1,8 +1,9 @@
 // C Program for Floyd Warshall Algorithm
 #include <stdio.h>
 #include "readfile.c"
+#include <math.h>
 // Number of vertices in the graph
-#define V size
+#define V  size
 
 /* Define Infinite as a large enough
   value. This value will be used
@@ -11,17 +12,34 @@
 
 
 int firstDivision = 0;
-char * filename = "tests/test2_new.txt";		//char * filename = "tests/test2_new.txt";
+char * filename = "tests/test1_new.txt";		//char * filename = "tests/test2_new.txt";
 int * weight;
 int size;
 int ** vertex;
 int root = INF;
 int root_index = 0;
 
+int root1 = -999999999;
+int root_index1 = 0;
+
 
 // A function to print the solution matrix
 void printSolution(int dist[][V]);
 void floydWarshall2 (int ** graph);
+
+float calculateSD(int * data) {
+    double sum = 0.0, mean=0.0, SD = 0.0;
+    int i;
+    for (i = 0; i < 250; ++i) {
+        sum += data[i];
+    }
+    mean = sum / 250.0;
+    printf("Mean : %lf",mean);
+    for (i = 0; i < 250; ++i) {
+        SD += pow(data[i] - mean, 2);
+    }
+    return sqrt(SD / 250.0);
+}
 
 // Solves the all-pairs shortest path
 // problem using Floyd Warshall algorithm
@@ -110,14 +128,22 @@ void floydWarshall (int ** graph)
         }
     }
 
-
+    print_array(V,value);
     for(int v = 0 ;v<V; v++){
         if (value[v]<=root){
             	root = value[v];
             	root_index = v;
         }
     }
-
+    for(int v = 0 ;v<V; v++){
+        if (value[v]>=root1){
+            	root1 = value[v];
+            	root_index1 = v;
+        }
+    }
+    printf("Max : %d \n",value[root_index1]);
+    printf("Min : %d \n",value[root_index]);
+    printf("SD : %lf",calculateSD(value));
     printf("Root value is %d\n",root_index);
     floydWarshall2 (graph);
 }
@@ -202,7 +228,7 @@ void floydWarshall2 (int **graph)
 
                     dist[i][j] = dist[i][k] + dist[k][j];
 
-                    if(k == root){	//	if(i==3 || j == 3 || k == 3){
+                    if(k == root_index){	//	if(i==3 || j == 3 || k == 3){
 						marked[i][j] = 1;
 						marked[j][i] = 1;
 						marked[i][k] = 1;
@@ -262,7 +288,7 @@ void floydWarshall2 (int **graph)
             }
         }
     }
-
+    
     printf("Selected min 1 is %d\n", min1_index);
     printf("Selected min 2 is %d\n", min2_index);
 
