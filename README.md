@@ -10,6 +10,7 @@ The problem is named as a multi-facility location problem. In a graph of cities,
 
 Source code of all approaches are put under `/src/` folder in `.ipynb` format for `small` and `large` graphs. As code files are named with the approach used, You can directly get into these files to see results of different approaches. [Jupyter Notebook/Lab](https://jupyter.org) is required to run codes.
 
+ - **Note:** `src/c/` folder could be ignored. At the beginning, we started for implementation using C, but simplicity of Python dominated. However, an instance of our hashmap implementation in C is presented in related directory.
 
 ---------
 # Approaches Used
@@ -40,7 +41,7 @@ After observing that optimal solution for bigger maps cannot be solved optimally
 Note: We also included a multi-processed version of this algorithm for future runs, say when graph size is a more realistic 10k, to simply select between the best options after multiple runs.
 
 ```
-Time Complexity: O(V^2 log(V))
+Time Complexity: O(V^3 log(V))
 Space Complexity : O(E) 
 ```
   * Elapsed Time:
@@ -54,7 +55,7 @@ for test2,
 We decided that previously discussed Greedy Heuristic may be improved by introducing local swap after every global swap, meaning that after every greedy add-drop, we run k-th neighbor subgraph algorithm we devices and swapped within this region if a better contender is present.
 
 ```
-Time Complexity: O(V^2 log(V))
+Time Complexity: O(V^3 log(V))
 Space Complexity : O(E) 
 ```
   * Elapsed Time:
@@ -71,7 +72,7 @@ for test2,
   - As it is an approximation to the global optimum solution, occasionally it could return a solution that is not global optimum. So, the best use case for this approach is to be used in very large graphs, with one million vertices as in `test3`. 
   - If these two subgraphs are disconnected after merge operation, the algorithm calculates (k+1)-th neighbor subgraphs and tries to merge them again to eliminate disconnection.
 ```
-Time Complexity: O(K * V^2 log(V))
+Time Complexity: O(K * V^3 log(V))
 Space Complexity : O(E)
 ```
 
@@ -131,7 +132,11 @@ Space Complexity : O(V) where V is the vertex number of the given map
 ---------
 
 # Prospective Development Path
-
+  - All code can be implemented in C, 2x running time improvement as we showed for Dijkstra.
+  - Fibonacci Heap may be implemented for 4x speed up for our "Greedy" approaches.
+  - Graph-cut + DP Algorithm's constant factors can de decreased for faster running time on smaller graphs.
+  - Different ML algorithms can both introduce better results and faster running times.
+  - KU HPC clusters may be used to introduce parallelization and approximate to best theoretical running times.
 
 
 
