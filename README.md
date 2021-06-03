@@ -29,6 +29,11 @@ Time Complexity : O(V^3)
 Space Complexity : O(V^2) 
 ```
 
+  * Elapsed Time:
+```
+9.75 sec.
+```
+
 ## Greedy Heuristic
 After observing that optimal solution for bigger maps cannot be solved optimally (NP-hard), we decided to implement greedy heuristics. First one was to simply greedy add-drop, that is starting with two random nodes, check all other nodes in the graph and swap with the biggest on hand if a contender has a smaller associated cost.
 Note: We also included a multi-processed version of this algorithm for future runs, say when graph size is a more realistic 10k, to simply select between the best options after multiple runs.
@@ -36,6 +41,11 @@ Note: We also included a multi-processed version of this algorithm for future ru
 ```
 Time complexity: O(V^2 log(V))
 ```
+  * Elapsed Time:
+```
+17.03 sec.
+```
+
 
 ### Local Optimization on Greedy Heuristic
 We decided that previously discussed Greedy Heuristic may be improved by introducing local swap after every global swap, meaning that after every greedy add-drop, we run k-th neighbor subgraph algorithm we devices and swapped within this region if a better contender is present.
@@ -43,6 +53,11 @@ We decided that previously discussed Greedy Heuristic may be improved by introdu
 ```
 Time complexity: $O(V^2 log(V))$
 ```
+  * Elapsed Time:
+```
+17.04 sec.
+```
+
 
 ### Sub-graph Expansion on Greedy Heuristic
   - This improvement is designed to be used in the largest graph `test3`. By starting from multiple points, It finds k-th neighbor graphs and finds the optimal points of each sub graph. After finding those, it finds the most common points that are encountered by the multiple runs. Then, it selects the subgraphs of the most common 2 points. After that, it merges those two subgraphs. By merging them, it runs APSP algorithm number of vertices times and finds the local optimum points for two hospitals. 
@@ -51,8 +66,13 @@ Time complexity: $O(V^2 log(V))$
   - As it is an approximation to the global optimum solution, occasionally it could return a solution that is not global optimum. So, the best use case for this approach is to be used in very large graphs, with one million vertices as in `test3`. 
   - If these two subgraphs are disconnected after merge operation, the algorithm calculates (k+1)-th neighbor subgraphs and tries to merge them again to eliminate disconnection.
 
+  * Elapsed Time:
+```
+65.15 sec. - binary heap implementation for dijkstra
+10.42 sec. - queue implementation for dijkstra
+```
 
-88 sec.
+
 
 ## Dynamic Programming + Combination Brute-Force
 
@@ -62,13 +82,17 @@ Time complexity: $O(V^2 log(V))$
 Time complexity: O(V^4)
 Space complexity: O(V^2)
 ```
+  * Elapsed Time:
+```
+12.82 sec.
+```
 
 ## Machine Learning
 In order to run our algorithms in the third and biggest map we thought we could learn the behaviour of the problem from small worksets and use machine learning to apply this to the last test case.
 As machine learning parameters we used weight of the Vertex, distance * weights multiplication of the neighbour Vertex, and the distance * weight multiplication value of the neighbour’s neighbour Vertexes.
 We used machine learning to find the necessary parameters using the second map and use these parameters in the biggest map. 
 Our machine learning algorithm runs time in  O(V^4) time in the second map to find the parameters and uses  O(V^2) space.
-After finding the parameters it runs in O(V) time and uses O(V) space to find the optimum places of the hospitals in the third map. 
+After finding the parameters it runs in O(VlogV) time and uses O(V) space to find the optimum places of the hospitals in the third map. 
 
 Finding Machine Learning Parameters
 ```
