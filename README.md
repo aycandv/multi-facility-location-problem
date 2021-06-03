@@ -31,6 +31,7 @@ Space Complexity : O(V^2)
 
   * Elapsed Time:
 ```
+for test2,
 9.75 sec.
 ```
 
@@ -43,6 +44,7 @@ Time complexity: O(V^2 log(V))
 ```
   * Elapsed Time:
 ```
+for test2,
 17.03 sec.
 ```
 
@@ -55,6 +57,7 @@ Time complexity: $O(V^2 log(V))$
 ```
   * Elapsed Time:
 ```
+for test2,
 17.04 sec.
 ```
 
@@ -68,8 +71,13 @@ Time complexity: $O(V^2 log(V))$
 
   * Elapsed Time:
 ```
+for test2,
 65.15 sec. - binary heap implementation for dijkstra
 10.42 sec. - queue implementation for dijkstra
+```
+
+```
+73 sec. - test3 - queue implementation
 ```
 
 
@@ -84,6 +92,7 @@ Space complexity: O(V^2)
 ```
   * Elapsed Time:
 ```
+for test2,
 12.82 sec.
 ```
 
@@ -104,6 +113,11 @@ Finding Optimal Space For 2 Hospitals
 ```
 Time Complexity : O(VlogV)
 Space Complexity : O(V) where V is the vertex number of the given map
+```
+
+* Elapsed Time:
+```
+51.4 sec. for test3
 ```
 
 
