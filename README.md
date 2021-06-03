@@ -68,6 +68,9 @@ for test2,
   - Time complexity of this algorithm includes an additional K multiplier which is related to number of random bootstrap points.
   - As it is an approximation to the global optimum solution, occasionally it could return a solution that is not global optimum. So, the best use case for this approach is to be used in very large graphs, with one million vertices as in `test3`. 
   - If these two subgraphs are disconnected after merge operation, the algorithm calculates (k+1)-th neighbor subgraphs and tries to merge them again to eliminate disconnection.
+```
+Time complexity: O(K * V^2 log(V))
+```
 
   * Elapsed Time:
 ```
