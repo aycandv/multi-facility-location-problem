@@ -41,6 +41,7 @@ Note: We also included a multi-processed version of this algorithm for future ru
 
 ```
 Time complexity: O(V^2 log(V))
+Space Complexity : O(E) 
 ```
   * Elapsed Time:
 ```
@@ -54,6 +55,7 @@ We decided that previously discussed Greedy Heuristic may be improved by introdu
 
 ```
 Time complexity: O(V^2 log(V))
+Space Complexity : O(E) 
 ```
   * Elapsed Time:
 ```
@@ -70,6 +72,7 @@ for test2,
   - If these two subgraphs are disconnected after merge operation, the algorithm calculates (k+1)-th neighbor subgraphs and tries to merge them again to eliminate disconnection.
 ```
 Time complexity: O(K * V^2 log(V))
+Space Complexity : O(E)
 ```
 
   * Elapsed Time:
