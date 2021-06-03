@@ -8,7 +8,7 @@ The problem is named as a multi-facility location problem. In a graph of cities,
 
 # How to Run
 
-Source code of all approaches are put under `/src/` folder in `.ipynb` format. As code files are named with the approach used, You can directly get into these folders to see results of different approaches. [Jupyter Notebook/Lab](https://jupyter.org) is required to run codes.
+Source code of all approaches are put under `/src/` folder in `.ipynb` format for `small` and `large` graphs. As code files are named with the approach used, You can directly get into these files to see results of different approaches. [Jupyter Notebook/Lab](https://jupyter.org) is required to run codes.
 
 
 ---------
