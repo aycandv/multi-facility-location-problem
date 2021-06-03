@@ -132,7 +132,10 @@ Space Complexity : O(V) where V is the vertex number of the given map
 ---------
 
 # Prospective Development Path
-
+  - All code can be implemented in C, 2x running time improvement as we showed for Dijkstra.
+  - Fibonacci Heap may be implemented for 4x speed up for our "Greedy" approaches.
+  - Graph-cut + DP Algorithm's constant factors can de decreased for faster running time on smaller graphs.
+  - Different ML algorithms can both introduce better results and faster running times.
 
 
 
