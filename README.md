@@ -40,7 +40,7 @@ After observing that optimal solution for bigger maps cannot be solved optimally
 Note: We also included a multi-processed version of this algorithm for future runs, say when graph size is a more realistic 10k, to simply select between the best options after multiple runs.
 
 ```
-Time complexity: O(V^2 log(V))
+Time Complexity: O(V^2 log(V))
 Space Complexity : O(E) 
 ```
   * Elapsed Time:
@@ -54,7 +54,7 @@ for test2,
 We decided that previously discussed Greedy Heuristic may be improved by introducing local swap after every global swap, meaning that after every greedy add-drop, we run k-th neighbor subgraph algorithm we devices and swapped within this region if a better contender is present.
 
 ```
-Time complexity: O(V^2 log(V))
+Time Complexity: O(V^2 log(V))
 Space Complexity : O(E) 
 ```
   * Elapsed Time:
@@ -71,7 +71,7 @@ for test2,
   - As it is an approximation to the global optimum solution, occasionally it could return a solution that is not global optimum. So, the best use case for this approach is to be used in very large graphs, with one million vertices as in `test3`. 
   - If these two subgraphs are disconnected after merge operation, the algorithm calculates (k+1)-th neighbor subgraphs and tries to merge them again to eliminate disconnection.
 ```
-Time complexity: O(K * V^2 log(V))
+Time Complexity: O(K * V^2 log(V))
 Space Complexity : O(E)
 ```
 
@@ -93,8 +93,8 @@ for test2,
   When testing smaller maps, we decided to try to code an algorithm that would definitely give a correct answer, in smaller maps. Our analysis showed that our problem converges to n^n for higher number of hospital selections, due to involvement of combination selections, but we were able to approximate that our 2-median problem may be viewed as a V^4 algorithm, where we first run a V^3 APSP algorithm and construct APSP matrix, then continue to travel this matrix and try all possible combinations of 2 to pick hospital cities. What happens next is while traversing the matrix, for every row, we set the cost of the far-away hospital to zero, resulting in a complete new APSP matrix in every combination selection. Consequently, we sum the relevant columns of those matrices and proceed to pick the smallest.
 
 ```
-Time complexity: O(V^4)
-Space complexity: O(V^2)
+Time Complexity: O(V^4)
+Space Complexity: O(V^2)
 ```
   * Elapsed Time:
 ```
