@@ -53,7 +53,7 @@ for test2,
 We decided that previously discussed Greedy Heuristic may be improved by introducing local swap after every global swap, meaning that after every greedy add-drop, we run k-th neighbor subgraph algorithm we devices and swapped within this region if a better contender is present.
 
 ```
-Time complexity: $O(V^2 log(V))$
+Time complexity: O(V^2 log(V))
 ```
   * Elapsed Time:
 ```
