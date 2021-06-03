@@ -24,9 +24,12 @@ Source code of all approaches are put under `/src/` folder in `.ipynb` format. A
 
   We try to divide the problem into 2 subproblems and apply the Floyd-Warshall algorithm to find the cut and optimum places for the hospitals. Therefore, we first found a cutting point for the graph by finding the best place for 1 hospital problem. The solution we find is used as the cut point for the graph, to get 2 sub graphs.  After finding the solution for one hospital problem, we solve the same problem with 2 subgraphs. To guarantee that nodes only visit the nearest hospital in the 2 subgraph case, we decrease the weight of the first node’s edges as 0. Therefore we make nodes to use that road to detect the nodes that would be in the opposite subgraph. Then we hold another 2D marked array to hold whether the node is used to go to the farthest hospital. After we detected this, while calculating the sum for the hospitals, we did not take account of these node values for the respective hospital places value. Then, we took the 2 nodes with the minimum sum and the resulting 2 nodes are our solution for the problem.
 
+```
 Time Complexity : O(V^3)
 Space Complexity : O(V^2) 
-Greedy Heuristic
+```
+
+## Greedy Heuristic
 After observing that optimal solution for bigger maps cannot be solved optimally (NP-hard), we decided to implement greedy heuristics. First one was to simply greedy add-drop, that is starting with two random nodes, check all other nodes in the graph and swap with the biggest on hand if a contender has a smaller associated cost.
 Note: We also included a multi-processed version of this algorithm for future runs, say when graph size is a more realistic 10k, to simply select between the best options after multiple runs.
 
