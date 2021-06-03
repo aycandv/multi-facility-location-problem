@@ -10,7 +10,7 @@ The problem is named as a multi-facility location problem. In a graph of cities,
 
 Source code of all approaches are put under `/src/` folder in `.ipynb` format for `small` and `large` graphs. As code files are named with the approach used, You can directly get into these files to see results of different approaches. [Jupyter Notebook/Lab](https://jupyter.org) is required to run codes.
 
- - ** Note: ** `src/c/` folder could be ignored. At the beginning, we started for implementation using C, but simplicity of Python dominated. However, an instance of our hashmap implementation in C is presented in related directory.
+ - **Note:** `src/c/` folder could be ignored. At the beginning, we started for implementation using C, but simplicity of Python dominated. However, an instance of our hashmap implementation in C is presented in related directory.
 
 ---------
 # Approaches Used
