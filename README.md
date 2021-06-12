@@ -1,4 +1,4 @@
-# comp-305-project
+# multi-facility-location-problem
 Term Project of COMP 305 Course at Koç University | Spring 2021
 
 
